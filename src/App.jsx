@@ -1,8 +1,15 @@
+import { Routes, Route, Navigate } from "react-router-dom";
+import Products from "./pages/Products/Products";
+import Cart from "./pages/Cart/Cart";
+
 function App() {
   return (
     <>
       <div>
-        <h1 className="text-3xl font-bold underline">new project</h1>
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
       </div>
     </>
   );
