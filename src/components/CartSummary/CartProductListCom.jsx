@@ -26,16 +26,6 @@ const CartProductListCom = ({ product }) => {
     dispatch(removeProduct(product.id));
   };
 
-  // Calculate the number of free cheese based on the quantity purchased
-  const getFreeCheeseCount = (quantity) => {
-    if (product.name.toLowerCase() === "cheese") {
-      return Math.floor(quantity); // 1 free cheese for each cheese bought
-    }
-    return 0; // No free cheese for other products
-  };
-
-  const freeCheeseCount = getFreeCheeseCount(cartItem.quantity);
-
   return (
     <div className="flex items-center mb-4 justify-between">
       <div className="h-20 w-16 md:h-20 md:w-20">

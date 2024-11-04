@@ -8,12 +8,8 @@ import { getFreeItemMessages } from "../../utils/freeItemMessages";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  console.log(cart.items);
-
   const { subtotal, total, savings } = calculateTotals(cart.items);
-
   const freeItemMessages = getFreeItemMessages(cart.items);
-
   return (
     <section className="flex justify-center">
       <div className="mt-10 w-3/4 bg-white rounded-md drop-shadow-lg flex flex-col md:flex-row md:h-[600px] ">
@@ -47,7 +43,7 @@ const Cart = () => {
               {freeItemMessages.length > 0 && (
                 <div className="ml-2 text-sm text-green-600">
                   {freeItemMessages.map((message, index) => (
-                    <div key={index}>{message}</div> // Display each message in a separate div
+                    <div key={index}>{message}</div>
                   ))}
                 </div>
               )}
