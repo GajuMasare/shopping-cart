@@ -15,6 +15,12 @@ export const calculateTotals = (items) => {
       const freeButter = Math.floor(item.quantity / 2);
       savings += item.price * freeButter; // Save the price of free butter
     }
+
+    // Example for cheese: buy 1 get 1 free
+    if (item.name.toLowerCase() === "cheese") {
+      const freeCheese = Math.floor(item.quantity / 2); // For every 2 cheeses, 1 is free
+      savings += item.price * freeCheese; // Save the price of free cheese
+    }
   });
 
   const total = subtotal - savings;
