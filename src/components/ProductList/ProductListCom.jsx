@@ -31,8 +31,8 @@ const ProductListCom = ({ product }) => {
     setShowOffers((prev) => !prev);
   };
 
-  const cart = useSelector((state) => state.cart);
-  console.log(cart);
+  // const cart = useSelector((state) => state.cart);
+  // console.log(cart);
 
   return (
     <div className="rounded-md shadow-md hover:shadow-lg h-70 flex flex-col">
