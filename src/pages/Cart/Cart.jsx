@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { calculateTotals } from "../../utils/calculateTotals";
 import { getFreeItemMessages } from "../../utils/freeItemMessages";
 import saveToFirestore from "../../utils/saveToFirestore";
+import { calculateSavings } from "../../utils/calculateSavings";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -25,12 +26,18 @@ const Cart = () => {
             </p>
           </div>
           <hr className="h-px my-5 bg-gray-600 border-1 " />
-          {cart.items.map((product) => (
-            <div key={product.id}>
-              <CartProductListCom product={product} />
-              <hr className="border-1 mb-3 bg-gray-400 " />
-            </div>
-          ))}
+          {cart.items.map((product) => {
+            const savingsForProduct = calculateSavings(product); // Implement this to get the specific savings
+            return (
+              <div key={product.id}>
+                <CartProductListCom
+                  product={product}
+                  savings={savingsForProduct}
+                />
+                <hr className="border-1 mb-3 bg-gray-400 " />
+              </div>
+            );
+          })}
           <Link to="/">
             <div className="flex items-center text-xs pt-3 font-semibold hover:text-blue-600">
               <BackArrow />
@@ -58,7 +65,7 @@ const Cart = () => {
               Subtotal:<span>₹{subtotal}</span>
             </div>
             <div className="flex justify-between text-red-500 mt-1 ">
-              Saving:<span>₹{savings}</span>
+              Saving:₹<span>₹{savings}</span>
             </div>
             <hr className="my-5 border border-gray-600" />
             <div className="flex font-bold justify-between mt-2">
