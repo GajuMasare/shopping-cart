@@ -11,6 +11,7 @@ const productsSlice = createSlice({
       price: 90,
       image: "/cheese.jpg",
       offer: "Buy 1 Get 1 Free!",
+      quantity: 1,
     },
     {
       id: 4,
@@ -18,6 +19,7 @@ const productsSlice = createSlice({
       price: 60,
       image: "/soup.jpg",
       offer: "Buy 1 and get Bread for half the price!",
+      quantity: 2,
     },
     {
       id: 5,
@@ -25,6 +27,7 @@ const productsSlice = createSlice({
       price: 120,
       image: "/butter.jpeg",
       offer: "Buy 2 and get 1 free!",
+      quantity: 3,
     },
   ],
   reducers: {},

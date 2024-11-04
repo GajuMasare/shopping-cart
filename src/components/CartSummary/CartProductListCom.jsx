@@ -3,6 +3,7 @@ import QuntityButton from "../layout/QuntityButton";
 import {
   increaseQuantity,
   decreaseQuantity,
+  removeProduct,
 } from "../../features/cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import RemoveSvg from "../layout/RemoveSvg";
@@ -21,16 +22,32 @@ const CartProductListCom = ({ product }) => {
     dispatch(decreaseQuantity(product.id));
   };
 
+  const handleRemove = () => {
+    dispatch(removeProduct(product.id));
+  };
+
+  // Calculate the number of free cheese based on the quantity purchased
+  const getFreeCheeseCount = (quantity) => {
+    if (product.name.toLowerCase() === "cheese") {
+      return Math.floor(quantity); // 1 free cheese for each cheese bought
+    }
+    return 0; // No free cheese for other products
+  };
+
+  const freeCheeseCount = getFreeCheeseCount(cartItem.quantity);
+
   return (
     <div className="flex items-center mb-4 justify-between">
-      <div className="h-16 w-16 md:h-20 md:w-20">
+      <div className="h-20 w-16 md:h-20 md:w-20">
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover rounded-md"
         />
       </div>
-      <div className="w-12 text-center">{product.name}</div>
+      <div>
+        <div className="w-12 text-center">{product.name}</div>
+      </div>
       <div className="flex justify-center items-center">
         <QuntityButton
           quantity={cartItem.quantity}
@@ -38,9 +55,13 @@ const CartProductListCom = ({ product }) => {
           onDecrease={handleDecrease}
         />
       </div>
-      <div className="w-15 text-center">₹{product.price}</div>
+      <div className="flex items-center">
+        <div className="text-center">
+          <span>₹{product.price}</span>
+        </div>
+      </div>
       <div>
-        <RemoveSvg />
+        <RemoveSvg remove={handleRemove} />
       </div>
     </div>
   );
