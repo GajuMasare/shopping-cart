@@ -4,7 +4,7 @@ import CartProductListCom from "../../components/CartSummary/CartProductListCom"
 import BackArrow from "../../components/layout/BackArrow";
 import { Link } from "react-router-dom";
 import { calculateTotals } from "../../utils/calculateTotals";
-import { getFreeItemMessages } from "../../utils/freeItemMessages"; // Import the utility function
+import { getFreeItemMessages } from "../../utils/freeItemMessages";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -12,13 +12,12 @@ const Cart = () => {
 
   const { subtotal, total, savings } = calculateTotals(cart.items);
 
-  // Get the free item messages using the utility function
   const freeItemMessages = getFreeItemMessages(cart.items);
 
   return (
     <section className="flex justify-center">
-      <div className="mt-10 w-3/4 bg-white rounded-md drop-shadow-lg flex flex-col md:flex-row md:h-[600px] h-auto ">
-        <div className="w-full md:w-8/12 p-5 rounded-t-md md:rounded-l-md px-10 ">
+      <div className="mt-10 w-3/4 bg-white rounded-md drop-shadow-lg flex flex-col md:flex-row md:h-[600px] ">
+        <div className="w-full md:w-8/12 p-5 rounded-t-md md:rounded-l-md px-10 overflow-auto">
           <div className="flex justify-between">
             <h1 className="text-2xl font-bold">Shopping Cart</h1>
             <p className="text-md text-gray-600">{cart.items.length} items</p>

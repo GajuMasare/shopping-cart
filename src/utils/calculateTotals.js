@@ -1,5 +1,3 @@
-// src/utils/calculateTotals.js
-
 export const calculateTotals = (items) => {
   let subtotal = 0;
   let savings = 0;
