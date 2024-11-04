@@ -5,7 +5,7 @@ const RemoveSvg = ({ remove }) => {
     <div onClick={remove}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5 text-red-500 cursor-pointer"
+        className="md:h-5 md:w-5 h-3 w-3 text-red-500 cursor-pointer"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth={2}

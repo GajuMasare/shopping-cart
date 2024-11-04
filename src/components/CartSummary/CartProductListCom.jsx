@@ -27,7 +27,7 @@ const CartProductListCom = ({ product }) => {
   };
 
   return (
-    <div className="flex items-center mb-4 justify-between">
+    <div className="flex items-center mb-4 justify-between text-xs md:text-sm">
       <div className="h-20 w-16 md:h-20 md:w-20">
         <img
           src={product.image}
